@@ -1,0 +1,13 @@
+.show-page-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 30px;
+}
+
+#show-image {
+  max-width: 100%;
+}
+
+#ingredient-grid {
+  max-width: 100%;
+}

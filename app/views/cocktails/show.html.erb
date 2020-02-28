@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="show-page-grid">
+    <img src="https://images.unsplash.com/photo-1541546006121-5c3bc5e8c7b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1494&q=80" id="show-image">
+    <div id="ingredient-grid">
+      <h1><%= @cocktail.name %></h1>
+      <h2>Instructions:</h2>
+      <% @cocktail.doses.each do |dose| %>
+        <p><%= dose.ingredient.name.capitalize %> - <%= dose.description %> - <%= link_to dose_path(dose), method: "delete" do %>
+          <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </p>
+      <% end %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Add an ingredient
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [@cocktail, @dose] do |f| %>
+              <%= f.association :ingredient %>
+              <%= f.input :description %>
+              <%= f.submit 'Add ingredient', class: "btn btn-primary" %>
+              <% end %>
+            </div>
+<!--             <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
