@@ -4,17 +4,35 @@
 @import "navbar";
 @import "footer";
 @import "card-grid";
+@import "star";
 
 
 .container {
-  width: 70vw;
+  // width: 70vw;
   margin-top: 30px;
 }
 
 .cocktail-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 350px 350px 350px;
   grid-gap: 20px;
+}
+
+$breakpoint-tablet: 768px;
+
+@media screen and (max-width: 1200px) {
+  .cocktail-grid {
+    display: grid;
+    grid-template-columns: 350px 350px;
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .cocktail-grid {
+    display: grid;
+    grid-template-columns: 350px;
+  }
 }
 
 .card {

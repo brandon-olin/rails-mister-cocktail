@@ -34,4 +34,12 @@
       </div>
     </div>
   </div>
+  <%= simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.collection_radio_buttons :stars, [[1], [2], [3], [4], [5]], :first, :last, boolean_style: :inline do |b| %>
+  <% counter = 0 %>
+  <%= b.radio_button + b.label {''} %>
+  <% end %>
+  <%= f.input :content %>
+  <%= f.submit 'Add review', class: "btn btn-primary" %>
+  <% end %>
 </div>
